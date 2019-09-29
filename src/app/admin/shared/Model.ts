@@ -1,6 +1,7 @@
 export interface User {
   email: string;
   password: string;
+  returnSecureToken?: boolean;
 }
 
 export interface Environment {
@@ -10,4 +11,5 @@ export interface Environment {
 
 export interface FbAuthResponse {
   idToken: string;
+  expiresIn: string;
 }
