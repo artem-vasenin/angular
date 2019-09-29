@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import {Environment} from '../app/admin/shared/Model';
+import { Environment } from '../app/admin/shared/model';
 
 export const environment: Environment = {
   apiKey: 'AIzaSyDtvqzX477vSBYCP__y8fYg_qLpWo6TVyE',

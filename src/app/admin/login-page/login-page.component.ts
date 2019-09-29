@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {User} from '../shared/Model';
-import {AuthService} from '../shared/services/auth.service';
-import {Router} from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../shared/model';
+import { AuthService } from '../shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss']
+  styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
   form: FormGroup;
@@ -15,16 +15,16 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
       email: new FormControl(null, [
-        Validators.required, Validators.email
+        Validators.required, Validators.email,
       ]),
       password: new FormControl(null, [
-        Validators.required, Validators.minLength(6)
+        Validators.required, Validators.minLength(6),
       ]),
     });
   }

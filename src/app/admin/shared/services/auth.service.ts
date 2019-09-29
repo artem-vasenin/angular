@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {FbAuthResponse, User} from '../Model';
-import {Observable, Subject, throwError} from 'rxjs';
-import {environment} from '../../../../environments/environment';
-import {catchError, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { FbAuthResponse, User } from '../model';
+import { Observable, Subject, throwError } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
@@ -16,17 +16,20 @@ export class AuthService {
     const expDate = new Date(localStorage.getItem('fb-token-exp'));
     if (new Date() > expDate) {
       this.logout();
+
       return null;
     }
+
     return localStorage.getItem('fb-token');
   }
 
   login(user: User): Observable<any> {
     user.returnSecureToken = true;
+
     return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, user)
       .pipe(
         tap(this.setToken),
-        catchError(this.handleError.bind(this))
+        catchError(this.handleError.bind(this)),
       );
   }
 
