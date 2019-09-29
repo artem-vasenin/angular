@@ -22,5 +22,10 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+    "exclude": [
+        "node_modules",
+        "tmp",
+        "e2e" // todo убрать из игнора!!
+    ]
 }
