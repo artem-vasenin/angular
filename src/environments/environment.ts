@@ -7,6 +7,7 @@ import { Environment } from '../app/admin/shared/model';
 export const environment: Environment = {
   apiKey: 'AIzaSyDtvqzX477vSBYCP__y8fYg_qLpWo6TVyE',
   production: false,
+  fbDbUrl: 'https://angular-3e677.firebaseio.com',
 };
 
 /*
