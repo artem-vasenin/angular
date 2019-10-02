@@ -1,32 +1,22 @@
-<div class="post">
-  <div class="header">
-    <h1>Post title</h1>
+<div *ngIf="post$ | async as post; else loading">
+  <div class="post">
+    <div class="header">
+      <h1>{{ post.title }}</h1>
 
-    <button routerLink="/" class="btn btn-link">Главная</button>
-  </div>
+      <button routerLink="/" class="btn btn-link">Главная</button>
+    </div>
 
-  <div class="info">
-    <strong>Автор</strong>
-    <small>11.11.2009</small>
-  </div>
+    <div class="info">
+      <strong>{{ post.author }}</strong>
+      <small>{{ post.date | date:'fullDate':null:'ru'}}</small>
+    </div>
 
-  <div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consectetur dolorem fugiat incidunt iure
-      maxime quis, quod ut. Accusamus atque dolore iusto quo tempora vel voluptate. Officiis perferendis unde vel?
-    </p>
-    <p>Libero, nemo, veniam? Accusamus atque cupiditate enim et id iste laboriosam maxime nulla optio pariatur
-      perspiciatis porro quis ratione, sed sequi totam voluptate! Aliquid cum ducimus fuga nihil perferendis quo?
-    </p>
-    <p>Accusantium alias, amet assumenda consequatur cum cumque cupiditate debitis eos eum excepturi exercitationem
-      ipsa laudantium minus nam numquam pariatur quis quos sit soluta temporibus tenetur ullam vel, voluptate voluptates
-      voluptatibus.
-    </p>
-    <p>Cum cumque dolores error eum ex expedita illum nam provident, quas reiciendis rerum sit voluptas voluptatibus?
-      Commodi cum hic incidunt ipsam perspiciatis quae quas ratione vitae! Dolor ipsum porro sapiente?
-    </p>
-    <p>Id minus molestias numquam obcaecati perspiciatis praesentium, quod reiciendis repellendus! Accusamus
-      aspernatur debitis dicta eaque eos esse est facere impedit ipsum iste, optio quidem ratione recusandae rerum totam
-      voluptas voluptates.
-    </p>
+    <div>
+      <quill-view-html [content]="post.text"></quill-view-html>
+    </div>
   </div>
 </div>
+
+<ng-template #loading>
+  <p class="text-center">Пост загружается...</p>
+</ng-template>
