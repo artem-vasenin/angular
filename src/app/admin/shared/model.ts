@@ -26,3 +26,10 @@ export interface Post {
   text: any;
   date: Date;
 }
+
+export type AlertType = 'success' | 'warning' | 'danger';
+
+export interface Alert {
+  type: AlertType;
+  text: string;
+}

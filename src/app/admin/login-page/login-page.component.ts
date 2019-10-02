@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../shared/model';
 import { AuthService } from '../shared/services/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {AlertService} from "../shared/services/alert.service";
 
 @Component({
   selector: 'app-login-page',
@@ -18,6 +19,7 @@ export class LoginPageComponent implements OnInit {
     public auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
+    private alert: AlertService
   ) { }
 
   ngOnInit() {
@@ -55,6 +57,7 @@ export class LoginPageComponent implements OnInit {
       this.submitted = false;
     }, () => {
       this.submitted = false;
+      this.alert.success('Вы успешно залогинились');
     });
   }
 }
